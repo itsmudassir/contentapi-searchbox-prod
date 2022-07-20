@@ -1,0 +1,100 @@
+# create post
+post http://localhost:7777/api/customTopicSearch/createcustomtopic
+Content-Type: application/json
+
+{
+    "name": "covid-22",
+    "match_type": "abc",
+    "any_keywords": ["123" ,"asda", "asdasbd"],
+    "must_also_keywords": ["123", "abc", "xyz", "pqr"],
+    "must_not_contains_keywords": ["123", "abc", "xyz", "pqr"],
+    "exclude_domains": ["amazon.com", "google.com"],
+    "limit_domains_results": ["ww.amazon", "www.saad.com", "google.com"],
+    "enddate": "2021-11-03",
+    "startdate": "2021-11-02",
+    "language": "urdu"
+
+}
+
+###
+
+# get all custom topics
+get http://localhost:7777/api/customTopicSearch/getcustomtopics
+
+
+###
+
+# update a single custom topic by customTopic ID
+PATCH http://localhost:7777/api/customTopicSearch/updatecustomtopic/623319cb16d503df34194437
+Content-Type: application/json
+
+{
+    "name": "covid-21",
+    "match_type": "abc",
+    "any_keywords": ["saad" ,"asda", "asdasbd"],
+    "must_also_keywords": ["123", "abc", "xyz", "pqr"],
+    "must_not_contains_keywords": ["123", "abc", "xyz", "pqr"],
+    "exclude_domains": ["amazon.com", "google.com"],
+    "limit_domains_results": ["ww.amazon", "www.saad.com", "google.com"],
+    "enddate": "2021-11-03",
+    "startdate": "2021-11-02",
+    "language": "urdu"
+
+}
+
+###
+# delete a custom topic by topic-id
+DELETE http://localhost:7777/api/customTopicSearch/deletecustomtopic/623319cb16d503df34194437
+
+###
+
+
+# get Content By Custom Topic 
+POST http://localhost:7777/api/customTopicSearch/editCreateCustsomtopic
+Content-Type: application/json
+
+{
+ "filterObj": [
+    {
+        "criteria": "topics",
+        "bodyORtitle": "body"
+    },
+    {
+        "any_keywords_list": [
+            "elon"
+        ]
+    },
+    {
+        "must_also_keywords_list": [
+            "tesla"
+        ]
+    },
+    {
+        "must_not_contains_keywords_list": [
+            "billgates"
+        ]
+    },
+    {
+        "exclude_domains_list": [
+            "mashable.com"
+        ]
+    },
+    {
+        "limit_domains_results_list": [
+            "newspunch.com"
+        ]
+    },
+    {
+        "startDate": "2022-03-01"
+    },
+    {
+        "endDate": "2022-03-31"
+    },
+    {
+        "language": "English"
+    },
+    {
+        "engagement": "twitter_shares"
+    }
+]
+}

@@ -4,16 +4,25 @@ const btoa = require('btoa');
 const app = express();
 const bodyParser = require('body-parser')
 var cors = require('cors')
-const port = process.env.PORT || 7777;
 const elastic = process.env.elastic
+const routex = process.env.routex
+const user = process.env.user
+const pass = process.env.pass
+const port = process.env.PORT || 7777;
+
+
+
 /* This is where we specify options for the http-proxy-middleware
  * We set the target to appbase.io backend here. You can also
  * add your own backend url here */
 const options = {
     target: elastic,
-    // target: 'https://rfrypdj6z1:uf0ufgjvz7@contentgizmo-1104621762.us-east-1.bonsaisearch.net:443',
     changeOrigin: true,
     onProxyReq: (proxyReq, req) => {
+        proxyReq.setHeader(
+            'Authorization',
+            `Basic ${btoa(user+':'+pass)}`
+        );
 
         /* transform the req body back from text */
         const { body } = req;
@@ -44,6 +53,31 @@ app.use((req, res, next) => {
 })
 
 /* Here we proxy all the requests from reactivesearch to our backend */
-app.use('*', proxy(options));
+// app.use('*', proxy(options));
+
+
+
+app.post(routex, proxy(options));
+
+
+app.get("/wakeup", async (req, res)=>{
+
+
+    res.send("searchbox awake!")
+
+
+});
+    
+app.get('*', function(req, res){
+  res.status(404).send("no route")
+});
+// app.get('/*', function(req, res){
+//     res.status(404).send("sorry")
+//   });
+
+// app.post('/*', function(req, res){
+//     res.status(404).send("sorry")
+//   });
+
 
 app.listen(port, () => console.log('Server running at http://localhost:7777 🚀'));

@@ -1,0 +1,35 @@
+# create post by favoutites folder id
+post http://localhost:7777/api/favouritePosts/622a0d523cdb9ce27860b56b
+Content-Type: application/json
+
+{
+    "index":"4",
+    "title":"bitcoin folder post number 10",
+    "maintext":"this is the main text this is the main text this is the main text this is the main text",
+    "category":"ENTERTAINMENT",
+    "language":"English",
+    "source_domain":"abc",
+    "readtime": 1,
+    "facebook": 1,
+    "twitter": "1",
+    "image_url":" www.saad-Idrees.com",
+    "url":"www.google.com",
+    "post_id": "1",
+    "date_publish":"2002-12-09"
+}
+
+
+###
+
+# get a single favourite post with post id
+GET http://localhost:7777/api/favouritePosts/post/6213c510ff186a7dd45cf011
+
+
+###
+#  all favourite posts with  favourites folder id
+GET http://localhost:7777/api/favouritePosts/all_posts/622a0d523cdb9ce27860b56b
+
+
+###
+#  get all fav post in favouritePosts model by user-id
+GET http://localhost:7777/api/favouritePosts/all_posts

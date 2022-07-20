@@ -1,0 +1,102 @@
+# registering a user
+post https://contentgizmo-content-api.herokuapp.com/api/user/register
+Content-Type: application/json
+
+{
+    "email":"smsidrees10@gmail.com",
+    "password":"saad01",
+    "firstName":"Saad", 
+    "lastName":"Idrees",
+    "title":"Mr"
+}                                                                                                                                                                                                                                                      
+
+###
+
+# Verifying a user by email
+POST http://localhost:7777/api/user/verify-email
+Content-Type:  application/json
+
+{
+    "token": "bb95fc23ff2a037e2cb23b5af430046db0e7748a99a45f362e6b9b6679022891c6fbb2a111ca26c7"
+}
+
+###
+
+# user sign in / authenticate
+post http://localhost:7777/api/user/authenticate
+Content-Type:  application/json
+
+{
+    "email":"smsidrees10@gmail.com",
+    "password":"saad01"
+}
+
+###
+# revoking token/ log-out
+post http://localhost:7777/api/user/revoke-token
+Content-Type:  application/json
+
+{
+
+}
+
+
+###
+#forget password route
+post http://localhost:7777/api/user/forgot-password
+Content-Type:  application/json
+
+{
+    "email":"saad@gmail25.com"
+}
+
+
+###
+#Reset password route
+post http://localhost:7777/api/user/reset-password
+Content-Type:  application/json
+
+{
+
+"token" : "802387052954d6a3a6f888f531149867a1bbf842f20498c5d9b1db76e46c130fbe0d5146b42d3abf", 
+"password": "saad01"
+
+}
+
+###
+# refresh token first need to be authenticated
+post http://localhost:7777/api/user/refresh-token
+Content-Type: application/json
+
+{
+    
+}
+
+###
+
+# Update user data first need to be authenticated
+put http://localhost:7777/api/user/621c99bc0beb76ccd0966e6f
+Content-Type:  application/json
+
+{
+    "email":"saad@gmail22.com",
+    "password":"saad01",
+    "firstName": "Shaikh Muhammad",
+    "lastName": "Saad",
+    "title": " hello im Saad"
+}
+
+
+###
+
+# delete user first need to be authenticated
+delete http://localhost:7777/api/user/619df47da46e8177b22e17ad
+Content-Type:  application/json
+
+{
+    
+}
+
+
+
+

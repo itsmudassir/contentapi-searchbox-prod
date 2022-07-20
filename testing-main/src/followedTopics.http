@@ -1,0 +1,33 @@
+# create topic
+post http://localhost:7777/api/followedTopics/
+Content-Type: application/json
+
+{
+    "topicName": "computers"
+}
+
+###
+
+# get all topics
+GET http://localhost:7777/api/followedTopics/
+
+###
+
+# delete topic by topic id
+DELETE http://localhost:7777/api/followedTopics
+Content-Type: application/json
+
+{
+    "topicName": "computer3"
+}
+
+###
+
+# check if the topic-name exist
+post http://localhost:7777/api/followedTopics/isFollowingTopic
+Content-Type: application/json
+
+{
+    "topicName": "drugs2"
+}
+

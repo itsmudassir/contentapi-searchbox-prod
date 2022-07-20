@@ -1,0 +1,40 @@
+# create a poster
+post http://localhost:7777/api/favouritesFolder/
+Content-Type: application/json
+
+{
+    "folderName": "Pakistan"
+}
+
+###
+
+# get a single folder by folder id
+GET http://localhost:7777/api/favouritesFolder/6213c26202d9fe10c46dc498
+
+
+###
+
+# get a all favourites folder by user id
+GET http://localhost:7777/api/favouritesFolder/
+
+###
+
+
+# delete folder by folder id 
+DELETE http://localhost:7777/api/favouritesFolder/6218c3df2b1f0257f330992b
+
+
+###
+# updating folder by folder id
+PATCH http://localhost:7777/api/favouritesFolder/6213c28f02d9fe10c46dc49a
+Content-Type: application/json
+
+{
+  "folderName": "Crypto currency"
+}
+
+###
+# delet all folders by user ID
+DELETE http://localhost:7777/api/favouritesFolder/6213bf62597993895ebb1666
+
+ 
