@@ -2,6 +2,8 @@ const express = require('express');
 const proxy = require('http-proxy-middleware');
 const btoa = require('btoa');
 const app = express();
+const dotenv = require('dotenv');
+dotenv.config()
 const bodyParser = require('body-parser')
 var cors = require('cors')
 const elastic = process.env.elastic
@@ -10,7 +12,7 @@ const user = process.env.user
 const pass = process.env.pass
 const port = process.env.PORT || 7777;
 
-
+;
 
 /* This is where we specify options for the http-proxy-middleware
  * We set the target to appbase.io backend here. You can also
